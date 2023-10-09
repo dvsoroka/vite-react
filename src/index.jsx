@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
- import App1 from './App1.jsx'
+//  import App1 from './App1.jsx'     // Example with cats
+import App from './App.jsx'
 import './style.css'
 
 function addTwoNumbersTogether(a, b) {
@@ -12,7 +13,7 @@ console.log(addTwoNumbersTogether(5, 9))
 ReactDOM.createRoot(document.getElementById('root')).render(
   
     <React.StrictMode>
-      <App1 />
+      <App />
     </React.StrictMode>
   )
   
