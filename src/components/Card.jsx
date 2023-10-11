@@ -42,3 +42,110 @@ export default function Card(props) {
       </div>
     )
 }
+
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
+
+const array1 = [1, 4, 9, 16];
+
+// Pass a function to map
+const map1 = array1.map((x) => x * 2);
+
+console.log(map1);
+// Expected output: Array [2, 8, 18, 32]
+
+
+
+const numbers = [1, 4, 9];
+const roots = numbers.map((num) => Math.sqrt(num));
+
+console.log(roots);
+// roots is now     [1, 2, 3]
+// numbers is still [1, 4, 9]
+
+
+const kvArray = [
+  { key: 1, value: 10 },
+  { key: 2, value: 20 },
+  { key: 3, value: 30 },
+];
+
+
+
+const reformattedArray = kvArray.map(({ key, value }) => ({ [key]: value }));
+
+console.log(reformattedArray); // [{ 1: 10 }, { 2: 20 }, { 3: 30 }]
+console.log(kvArray);
+// [
+//   { key: 1, value: 10 },
+//   { key: 2, value: 20 },
+//   { key: 3, value: 30 }
+// ]
+
+/*
+Challenge 1:
+Given an array of numbers, return an array of each number, squared
+*/
+const nums = [1, 2, 3, 4, 5]
+// -->       [1, 4, 9, 16, 25]
+// Your code here
+const squares = nums.map(function(num) {
+  return num * num
+})
+
+console.log(squares)
+
+const squares1 = nums.map((i) => i * i)
+const squares2  = nums.map((i) => {return (i * i)} )  // with block body, explicit "return" needed
+
+console.log(squares1)
+console.log(squares2)
+
+
+/*
+Challenge 2:
+Given an array of strings, return an array where 
+the first letter of each string is capitalized
+*/
+
+const names = ["alice", "bob", "charlie", "danielle"]
+// -->        ["Alice", "Bob", "Charlie", "Danielle"]
+// Your code here
+
+
+const capNames = names.map(function(name) {
+    const firstletter = name.charAt(0)
+    const firtCap = firstletter.toUpperCase()
+    const remainingLetters = name.slice(1)
+    return (firtCap+remainingLetters)
+})
+console.log(capNames)
+
+
+const capitalized = names.map((name) => {
+  return name[0].toUpperCase() + name.slice(1)
+})
+
+console.log(capitalized)
+
+/*
+Challenge 3:
+Given an array of strings, return an array of strings that wraps each
+of the original strings in an HTML-like <p></p> tag.
+
+E.g. given: ["Bulbasaur", "Charmander", "Squirtle"]
+return: ["<p>Bulbasaur</p>", "<p>Charmander</p>", "<p>Squirtle</p>"]
+*/
+
+const pokemon = ["Bulbasaur", "Charmander", "Squirtle"]
+// -->          ["<p>Bulbasaur</p>", "<p>Charmander</p>", "<p>Squirtle</p>"]
+// Your code here
+const pokemoned = pokemon.map((item) => "<p>"+item+"</p>" )
+
+console.log(pokemoned)
+
+// const paragraphs = pokemon.map((mon) => {
+//   return `<p>${mon}</p>`
+// })
+
+const paragraphs = pokemon.map(mon => `<p>${mon}</p>`)
+console.log(paragraphs)
