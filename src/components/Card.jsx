@@ -66,12 +66,12 @@ title: "Life Lessons with Katie Zaferes"
     */
 
 export default function Card(props) {
-  console.log(props)
-  console.log(props.item.title)
+//  console.log(props)
+//  console.log(props.item.title)
   let badgeText     // initially - undefined, equivalent to "false"
-  if (props.item.openSpots === 0) {    // even if equals to 0 it is not undefined, so it is "true"
+  if (props.openSpots === 0) {    // even if equals to 0 it is not undefined, so it is "true"
     badgeText = "SOLD OUT"
-  } else if (props.item.location === "Online") {   // if it is equal to some number, it is also "true"
+  } else if (props.location === "Online") {   // if it is equal to some number, it is also "true"
     badgeText = "ONLINE"
   }
   return (
@@ -79,15 +79,15 @@ export default function Card(props) {
 {/*       {props.openSpots === 0 && <div className="card--badge">SOLD OUT</div>}    - if (openSpots === 0) then render a <div>*/} 
 {/*       {!props.openSpots && <div className="card--badge">SOLD OUT</div>}       - equivalent to the line above  */} 
           {badgeText  && <div className="card--badge">{badgeText}</div>}  
-          <img className="card--image" src={`./src/assets/${props.item.coverImg}`} />
+          <img className="card--image" src={`./src/assets/${props.coverImg}`} />
           <div className="card--stats">
               <img className="card--star" src="./src/assets/star.png" /> 
-              <span>&#x2005;{props.item.stats.rating}</span>
-              <span className="gray">&#x2005;({props.item.stats.reviewCount}) • </span> 
-              <span className="gray">{props.item.location}</span> 
+              <span>&#x2005;{props.stats.rating}</span>
+              <span className="gray">&#x2005;({props.stats.reviewCount}) • </span> 
+              <span className="gray">{props.location}</span> 
           </div>
-          <p className="card--title">{props.item.title}</p>
-          <p className="card--price"><span className="bold">From ${props.item.price}</span> / person</p>
+          <p className="card--title">{props.title}</p>
+          <p className="card--price"><span className="bold">From ${props.price}</span> / person</p>
       </div>
     )
 }

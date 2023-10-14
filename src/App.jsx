@@ -36,16 +36,31 @@ export default function App() {
 /* we introduce unique key to get rid of the Warning: "Each child in a list should have a unique "key" prop." */
   const cardElements = cardData.map(item => {
     return <Card 
+              key = {item.id} 
+//            item = {item} 
+              {...item} // destructuring {item object} to get rid of long references like {props.item.price} instead {props.price}
+                        // as described in https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#spread_in_object_literals
+
+/*  Previously we have passed props as folllows:
+
+
               key = {item.id}  
-              item = {item}   
-  
+              img = {item.coverImg}
+              rating = {item.stats.rating}
+              reviewCount = {item.stats.reviewCount}
+              location ={item.location}
+              title = {item.title}
+              price = {item.price}
+              openSpots = {item.openSpots}    
+  */                        
             />
     }
   )
-           //       <Hero />
+           
   return (  
     <div>
         <Navbar />
+        <Hero />
         <section className="cards-list">
             {cardElements}
         </section>
@@ -83,4 +98,23 @@ Done. Now run:
   npm install
   npm run dev
 
+  */
+
+  /* 
+  npm create vite@latest
+√ Project name: ... react-travel-journal
+? Select a framework: » - Use arrow-keys. Return to submit.
+>   Vanilla
+    Vue
+√ Select a framework: » React
+√ Select a variant: » JavaScript
+
+Scaffolding project in H:\Projects\tutotials\ReactFreeCodeCamp\react-travel-journal...
+
+Done. Now run:
+
+  cd react-travel-journal
+  npm install
+  npm run dev
+  
   */
