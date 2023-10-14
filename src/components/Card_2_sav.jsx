@@ -17,77 +17,28 @@ Notes:
 - The main purpose of this challenge is to show you where our limitations
   currently are, so don't worry about the fact that you're hard-coding all
   this data into the component.
-
-  https://www.youtube.com/watch?v=bMknfKXIFA8  (4:10:16)
 */
-
-
-/*
-    Challenge:
-    1. Display the correct text in the badge based on the logic above
-    2. Only display the badge if badgeText has a value
-*/
-
-{/*           key = {item.id}  
-              img = {item.coverImg}
-              rating = {item.stats.rating}
-              reviewCount = {item.stats.reviewCount}
-              location ={item.location}
-              title = {item.title}
-              price = {item.price}
-              openSpots = {item.openSpots}    */}  
-/*
-
-{img: 'katie-zaferes.png', rating: 5, reviewCount: 6, location: 'Online', title: 'Life Lessons with Katie Zaferes', …}
-img: "katie-zaferes.png"
-location: "Online"
-openSpots: 0
-price: 136
-rating: 5
-reviewCount: 6
-title: "Life Lessons with Katie Zaferes"
-
-
-{item: {…}}
-item: 
-coverImg: "katie-zaferes.png"
-description: "I will share with you what I call \"Positively Impactful Moments of Disappointment.\" Throughout my career, many of my highest moments only came after setbacks and losses. But learning from those difficult moments is what gave me the ability to rise above them and reach my goals."
-id: 1
-location: "Online"
-openSpots: 0
-price: 136
-stats: 
-  rating: 5
-  reviewCount: 6
-[[Prototype]]: Object
-title: "Life Lessons with Katie Zaferes"
-[[Prototype]]: Object
-    Challenge: Fix our component! 😱
-    */
 
 export default function Card(props) {
-  console.log(props)
-  console.log(props.item.title)
-  let badgeText     // initially - undefined, equivalent to "false"
-  if (props.item.openSpots === 0) {    // even if equals to 0 it is not undefined, so it is "true"
-    badgeText = "SOLD OUT"
-  } else if (props.item.location === "Online") {   // if it is equal to some number, it is also "true"
-    badgeText = "ONLINE"
-  }
-  return (
+    return (
       <div className="card">
-{/*       {props.openSpots === 0 && <div className="card--badge">SOLD OUT</div>}    - if (openSpots === 0) then render a <div>*/} 
-{/*       {!props.openSpots && <div className="card--badge">SOLD OUT</div>}       - equivalent to the line above  */} 
-          {badgeText  && <div className="card--badge">{badgeText}</div>}  
-          <img className="card--image" src={`./src/assets/${props.item.coverImg}`} />
+        
+{/*       <img className="card--image" src="./src/assets/katie-zaferes.png" />    */}  
+{/*      <img className="card--image" src={"./src/assets/" + props.img} />     */} 
+        <img className="card--image" src={`./src/assets/${props.img}`} />
           <div className="card--stats">
-              <img className="card--star" src="./src/assets/star.png" /> 
-              <span>&#x2005;{props.item.stats.rating}</span>
-              <span className="gray">&#x2005;({props.item.stats.reviewCount}) • </span> 
-              <span className="gray">{props.item.location}</span> 
+            <img className="card--star" src="./src/assets/star.png" /> 
+{/*             <span>&#x2005;5.0</span>                                      */} 
+                <span>&#x2005;{props.rating}</span>
+{/*             <span className="gray">&#x2005;(6)• &#x2022; </span>          */}
+                <span className="gray">&#x2005;({props.reviewCount}) • </span> 
+{/*             <span className="gray">USA</span>                             */} 
+                <span className="gray">{props.country}</span> 
           </div>
-          <p className="card--title">{props.item.title}</p>
-          <p className="card--price"><span className="bold">From ${props.item.price}</span> / person</p>
+{/*           <p>Life lessons with Katie Zaferes</p>             */} 
+              <p>{props.title}</p>
+{/*           <p><span className="bold">From $136 </span> / person</p>       */} 
+              <p><span className="bold">From ${props.price}</span> / person</p>
       </div>
     )
 }
